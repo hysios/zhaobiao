@@ -4,7 +4,7 @@ services:
     container_name: zhaobiao_qdrant
     ports:
       - "6333:6333"
-      - "6334:6334"   # gRPC（可选）
+      - "6334:6334" # gRPC（可选）
     volumes:
       - qdrant_data:/qdrant/storage
   app:
@@ -15,6 +15,7 @@ services:
     environment:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - ANTHROPIC_BASE_URL=${ANTHROPIC_BASE_URL:-}
+      - DASHSCOPE_API_KEY=${DASHSCOPE_API_KEY}
       - QDRANT_HOST=qdrant
       - QDRANT_PORT=6333
     depends_on:
